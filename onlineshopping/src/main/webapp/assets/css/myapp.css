@@ -5,4 +5,37 @@
  */
 body {
   padding-top: 56px;
+  height: 100%;
+}
+
+
+
+html{
+	height: 100%;
+}
+
+
+
+foooter{
+	
+	width: 100%;
+}
+
+.wrapper{
+	min-height: 100%;
+	position: relative;
+}
+
+
+.content{
+	padding-bottom: 60px;
+		
+}
+
+.footer{
+	position: absolute;
+	bottom:0;
+	height:60px;
+	
+	
 }
