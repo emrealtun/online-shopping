@@ -52,12 +52,8 @@
  	 <%@include file="about.jsp" %>
   </c:if>
   
-  <c:if test="${userClickProduct ==true }">
- 	 <%@include file="listProduct.jsp" %>
-  </c:if>
-  
-  <c:if test="${userClickContact ==true }">
- 	 <%@include file="contact.jsp" %>
+  <c:if test="${userClickAllProduct == true ||  userClickCategoryProduct == true}">
+ 	 <%@include file="listProducts.jsp" %>
   </c:if>
   
   <!-- /.container -->
@@ -70,6 +66,9 @@
   <!-- Bootstrap core JavaScript -->
   <script src="${js}/jquery.min.js"></script>
   <script src="${js}/bootstrap.bundle.min.js"></script>
+    <script src="${js}/myapp.js"></script>
+  
+  
 
 	</div>
 </body>
