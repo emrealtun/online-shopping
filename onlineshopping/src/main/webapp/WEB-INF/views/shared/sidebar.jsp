@@ -4,7 +4,7 @@
         
         <c:forEach items="${categories}"  var="category">
          
-           <a href="${contextRoot}/show/category/${category.getId()}/products" id="a_${category.getName()} " class="list-group-item">${category.getName()}</a>
+           <a href="${contextRoot}/show/category/${category.getId()}/products" id="a_${category.getName()}" class="list-group-item">${category.getName()}</a>
         
         </c:forEach>
         

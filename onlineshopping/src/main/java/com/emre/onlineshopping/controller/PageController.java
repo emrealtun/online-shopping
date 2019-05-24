@@ -12,6 +12,7 @@ import com.emre.shoppingbackend.dto.Category;
 @Controller
 public class PageController {
 	
+	
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
@@ -62,7 +63,7 @@ public class PageController {
 		
 		return mv;
 	}
-	
+	 
 	
 	@RequestMapping(value="/show/category/{id}/products")
 	public ModelAndView showCategoryProduct(@PathVariable("id") int id)
