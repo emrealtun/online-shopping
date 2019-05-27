@@ -34,41 +34,67 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 
 	public List<Product> list() {
-		String selectActiveProduct= "FROM Product WHERE isActive = :isActive";
-		Query query= sessionFactory.getCurrentSession().createQuery(selectActiveProduct);
-		query.setParameter("isActive", true);
 		
-		return query.getResultList();
+		return sessionFactory.getCurrentSession().createQuery("FROM Product",Product.class).getResultList();
+		
 	}
 
 	public boolean add(Product product) {
-		// TODO Auto-generated method stub
+		try {
+			sessionFactory.getCurrentSession().persist(product);
+			
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+
 		return false;
 	}
 
 	public boolean update(Product product) {
-		// TODO Auto-generated method stub
+		try {
+			 sessionFactory.getCurrentSession().update(product);
+		} catch (Exception e) {
+				e.printStackTrace();
+		}
+		
 		return false;
 	}
 
 	public boolean delete(Product product) {
-		// TODO Auto-generated method stub
+			
+		try {
+			product.setActive(false);
+			sessionFactory.getCurrentSession().update(product);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return false;
 	}
 
 	public List<Product> listActiveProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		String selectActiveProduct = "FROM Product WHERE  isActive= :isActive";
+		
+		return sessionFactory.getCurrentSession().createQuery(selectActiveProduct,Product.class).setParameter("isActive",true).getResultList();
 	}
 
 	public List<Product> listActiveProductsByCategory(int categoryId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		
+		String selectActiveProductsByCategory= "FROM Product WHERE isActive= :isActive  AND categoryId= :categoryId";
+		
+		return sessionFactory.getCurrentSession().createQuery(selectActiveProductsByCategory,Product.class)
+				.setParameter("isActive", true).setParameter("categoryId",categoryId).getResultList();
+		}
 
 	public List<Product> getLatestActiveProducts(int count) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		String selectLastestActiveProducts= "FROM Product WHERE isActive= :isActive ORDER BY id";
+		
+		return sessionFactory.getCurrentSession().createQuery(selectLastestActiveProducts,Product.class)
+				.setParameter("isActive", true).setFirstResult(0).setMaxResults(count).getResultList();
 	}
 
 }

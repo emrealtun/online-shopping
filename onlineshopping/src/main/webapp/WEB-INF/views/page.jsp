@@ -20,7 +20,9 @@
   <title>${title}</title>
 	
 	<script>
-		window.menu = '${title}'
+		window.menu = '${title}';
+		
+		window.contextRoot =  '${contextRoot}';
 	</script>
 
 
@@ -28,6 +30,9 @@
   <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
   <link href="${css}/bootstrap-custom-theme.min.css" rel="stylesheet">
+
+
+  <link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="${css}/myapp.css" rel="stylesheet">
@@ -65,6 +70,11 @@
 
   <!-- Bootstrap core JavaScript -->
   <script src="${js}/jquery.min.js"></script>
+    <script src="${js}/jquery.dataTables.js"></script>
+    
+    <script src="${js}/dataTables.bootstrap4.js"></script>
+    
+  
   <script src="${js}/bootstrap.bundle.min.js"></script>
     <script src="${js}/myapp.js"></script>
   
