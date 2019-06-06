@@ -28,8 +28,12 @@
 
   <!-- Bootstrap core CSS -->
   <link href="${css}/bootstrap.min.css" rel="stylesheet">
+  
+  <link href="${css}/open-iconic.css" rel="stylesheet">
+  
 
   <link href="${css}/bootstrap-custom-theme.min.css" rel="stylesheet">
+
 
 
   <link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
@@ -61,6 +65,9 @@
  	 <%@include file="listProducts.jsp" %>
   </c:if>
   
+   <c:if test="${userClickShowProduct ==true}">
+ 	 <%@include file="singleProduct.jsp" %>
+  </c:if>
   <!-- /.container -->
 
   </div>
